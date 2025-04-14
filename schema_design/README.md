@@ -68,7 +68,7 @@ Stores order data and links to customers.
 
 ---
 
-### 4. `order_items`
+### 4. `order_details`
 
 Details the individual details in an order.
 
@@ -83,7 +83,7 @@ Details the individual details in an order.
 
 ---
 
-### 5. `inventory`
+### 5. `inventory_logs`
 
 Tracks stock changes such as restocks or sales.
 
