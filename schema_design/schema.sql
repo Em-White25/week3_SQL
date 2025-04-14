@@ -16,7 +16,7 @@ CREATE TABLE products (
     price NUMERIC(10, 2),
     stock_quantity INT,
     reorder_level INT,
-    description TEXT
+    product_description TEXT
 );
 
 -- Orders table
@@ -34,17 +34,16 @@ CREATE TABLE order_details (
     order_id INT REFERENCES orders(order_id),
     product_id INT REFERENCES products(product_id),
     quantity INT,
-
+    unit_price NUMERIC(10, 2),
+    total_amount NUMERIC(10, 2)
 );
 
--- Inventory Logs table
-CREATE TABLE inventory_logs (
+
+-- Inventory table
+CREATE TABLE inventory (
     log_id SERIAL PRIMARY KEY,
     product_id INT REFERENCES products(product_id),
     change_quantity INT,
     change_type VARCHAR(50), -- e.g., 'restock', 'sale', etc.
     changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-
--- DROP TABLE IF EXISTS customers, products, orders, order_items, inventory CASCADE;
